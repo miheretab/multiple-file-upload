@@ -5,7 +5,7 @@
 You can install this plugin into your CakePHP application using [composer](https://getcomposer.org).
 
 
-put MultipleFileUpload folder into plugins and do:
+create MultipleFileUpload folder into plugins folder and do:
 ```
 composer dumpautoload
 ```
