@@ -18,7 +18,7 @@ or execute sql/files.sql
 
 You need to have project model in your cakephp application
 
-and add the ff to the ProjectTable
+and add the ff to the ProjectsTable
 
 ```
 $this->hasMany('Files', [
@@ -28,3 +28,8 @@ $this->hasMany('Files', [
 ```
 
 store max file size in .env FILE_MAX_SIZE_MB, by default it is 1MB
+
+You can view, download and remove files in a project using this url (.../multiple-file-upload/files/view/PROJECT_ID), replace PROJECT_ID with your real project id.
+
+here is what it looks like:
+![alt text](https://snag.gy/2BCeDi.jpg)
