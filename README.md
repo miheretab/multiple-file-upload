@@ -5,9 +5,26 @@
 You can install this plugin into your CakePHP application using [composer](https://getcomposer.org).
 
 
-create MultipleFileUpload folder into plugins folder and do:
+put MultipleFileUpload folder into plugins and do:
 ```
 composer dumpautoload
+```
+
+or manual installation by modifying your application composer.json like this:
+
+```
+    "autoload": {
+        "psr-4": {
+            //....
+            "MultipleFileUpload\\": "./plugins/MultipleFileUpload/src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            //...
+            "MultipleFileUpload\\Test\\": "./plugins/MultipleFileUpload/tests/"
+        }
+    },
 ```
 
 Run db migration:
@@ -18,7 +35,7 @@ or execute sql/files.sql
 
 You need to have project model in your cakephp application
 
-and add the ff to the ProjectsTable
+and add the ff to the ProjectTable
 
 ```
 $this->hasMany('Files', [
@@ -28,8 +45,3 @@ $this->hasMany('Files', [
 ```
 
 store max file size in .env FILE_MAX_SIZE_MB, by default it is 1MB
-
-You can view, download and remove files in a project using this url (.../multiple-file-upload/files/view/PROJECT_ID), replace PROJECT_ID with your real project id.
-
-here is what it looks like:
-![alt text](https://snag.gy/2BCeDi.jpg)
