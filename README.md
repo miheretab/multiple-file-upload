@@ -27,6 +27,11 @@ or manual installation by modifying your application composer.json like this:
     },
 ```
 
+add this line to src/Application.php
+```
+$this->addPlugin('MultipleFileUpload');
+```
+
 Run db migration:
 ```
 bin/cake migrations migrate -p MultipleFileUpload
