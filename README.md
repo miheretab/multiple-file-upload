@@ -44,4 +44,7 @@ $this->hasMany('Files', [
 ]);
 ```
 
-store max file size in .env FILE_MAX_SIZE_MB, by default it is 1MB
+store these variables in .env
+FILE_MAX_SIZE_MB=1, by default it is 1MB
+PROJECT_MODEL_NAME=Projects, by default it is Projects
+

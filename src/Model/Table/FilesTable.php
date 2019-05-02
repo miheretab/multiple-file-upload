@@ -43,7 +43,7 @@ class FilesTable extends Table
         $this->belongsTo('Projects', [
             'foreignKey' => 'project_id',
             'joinType' => 'INNER',
-			'className' => 'App.Projects'
+			'className' => 'App.'.env('PROJECT_MODEL_NAME', 'Projects')
         ]);
     }
 
