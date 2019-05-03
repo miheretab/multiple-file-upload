@@ -20,7 +20,7 @@
 
 <script>
 	$(document).ready(function(){
-		$('a.remove').on('click', function(e){
+		$(document).on('click','a.remove', function(e){
 			e.preventDefault();
 			var url = $(this).attr('href');
 			$.ajax({
