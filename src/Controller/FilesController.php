@@ -11,6 +11,14 @@ class FilesController extends AppController
     {
         parent::initialize();
         $this->loadComponent('RequestHandler');
+		$this->loadComponent('Security');
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+
+        $this->Security->setConfig('unlockedActions', ['upload', 'download', 'remove']);
     }
 
     public function view($projectId) {
