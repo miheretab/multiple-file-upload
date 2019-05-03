@@ -53,3 +53,5 @@ store these variables in .env
 FILE_MAX_SIZE_MB=1, by default it is 1MB
 PROJECT_MODEL_NAME=Projects, by default it is Projects
 
+
+Finally, make sure you delete files in tmp/cache/models/*, tmp/cache/persistent/* and tmp/cache/*
