@@ -50,6 +50,13 @@ $this->hasMany('Files', [
 ```
 
 store these variables in .env
+
+```
+export APP_NAME="__APP_NAME__"
+export FILE_MAX_SIZE_MB=1
+export PROJECT_MODEL_NAME=Projects
+```
+if you dont put APP_NAME please do
 FILE_MAX_SIZE_MB=1, by default it is 1MB
 PROJECT_MODEL_NAME=Projects, by default it is Projects
 

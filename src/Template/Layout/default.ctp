@@ -30,6 +30,6 @@
 		<?= $this->fetch('content') ?>
 
 	</div>
-	<?= $this->Html->script('MultipleFileUpload.script') ?>
+	<?= $this->Html->script('MultipleFileUpload.script.js?v=1') ?>
 </body>
 </html>
