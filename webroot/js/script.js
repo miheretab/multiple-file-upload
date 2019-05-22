@@ -16,12 +16,12 @@
 	{
 		var input		 = form.querySelector( 'input[type="file"]' ),
 			label		 = form.querySelector( 'label' ),
-			errorMsg	 = form.querySelector( '.box__error span' ),
+			errorMsg	 = document.getElementById("error"),
 			restart		 = form.querySelectorAll( '.box__restart' ),
 			droppedFiles = false,
 			showFiles	 = function( files )
 			{
-				label.textContent = files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
+				//label.textContent = files.length > 1 ? ( input.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', files.length ) : files[ 0 ].name;
 			},
 			triggerFormSubmit = function()
 			{
@@ -96,6 +96,7 @@
 
 			form.classList.add( 'is-uploading' );
 			form.classList.remove( 'is-error' );
+			errorMsg.style.display = 'none'
 
 			if( isAdvancedUpload ) // ajax file upload for modern browsers
 			{
@@ -121,9 +122,10 @@
 					if( ajax.status >= 200 && ajax.status < 400 )
 					{
 						var data = JSON.parse( ajax.responseText );console.log(data);
-						form.classList.add( data.success == true ? 'is-success' : 'is-error' );
+						//form.classList.add( data.success == true ? 'is-success' : 'is-error' );
 						if( !data.success ) {errorMsg.textContent = data.error.join("<br>");}
 						else {errorMsg.textContent = data.message;}
+						errorMsg.style.display = 'block'
 						$.ajax({
 							url: base + 'files/view/' + data.projectId,
 							method: 'GET',
@@ -162,7 +164,7 @@
 					form.classList.remove( 'is-uploading' )
 					form.classList.add( data.success == true ? 'is-success' : 'is-error' )
 					form.removeAttribute( 'target' );
-					if( !data.success ) errorMsg.textContent = data.error;
+					if( !data.success ) {errorMsg.textContent = data.error;errorMsg.style.display = 'block';}
 					iframe.parentNode.removeChild( iframe );
 				});
 			}

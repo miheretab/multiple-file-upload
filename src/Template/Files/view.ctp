@@ -11,10 +11,15 @@
 
 	<div class="box__uploading">Uploading…</div>
 	<div class="box__success">Done! <a href="<?= $this->Url->build('/multiple-file-upload/files/view/'.$projectId); ?>" class="box__restart" role="button">Upload more?</a></div>
-	<div class="box__error">Error! <span></span>. <a href="<?= $this->Url->build('/multiple-file-upload/files/view/'.$projectId); ?>" class="box__restart" role="button">Try again!</a></div>
+	<!--<div class="box__error">Error! <span></span>. <a href="<?= $this->Url->build('/multiple-file-upload/files/view/'.$projectId); ?>" class="box__restart" role="button">Try again!</a></div>-->
 	<input type="hidden" name="ajax" value="1">
 </form>
 
+<div style="display:none;" id="error" class="box__error"><span></span></div>
+
+<div id="files">
+	<?php echo $this->Element('view_files'); ?>
+</div>
 
 <script>
 	$(document).ready(function(){

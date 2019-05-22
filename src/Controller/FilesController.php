@@ -39,7 +39,6 @@ class FilesController extends AppController
 			$maxFileSize = env('FILE_MAX_SIZE_MB', 1) * 1024 * 1024;
 			foreach($this->request->data['files'] as $i => $file) {
 				$filename = $file['name'];
-
 				if(!empty($file['tmp_name']) && $file['size'] > 0 && is_uploaded_file($file['tmp_name'])) {
 					if($file['size'] < $maxFileSize) {
 						$dir = new Folder(ROOT . DS . 'files' . DS . $projectId, true, 0777);//var_dump($dir->pwd());exit;
@@ -57,7 +56,7 @@ class FilesController extends AppController
 					} else {
 						$errors[] = 'File ' . $filename . ' is exceded max amount ' . $maxFileSize;
 					}
-				} else if($file['size'] > 0 && !is_uploaded_file($file['tmp_name'])) {
+				} else if(!empty($file['name']) && !is_uploaded_file($file['tmp_name'])) {
 					$errors[] = 'File ' . $filename . ' is not uploadable.';
 				}
 			}
