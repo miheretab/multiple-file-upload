@@ -3,32 +3,9 @@ html
 }
 body
 {
-	font-family: Roboto, sans-serif;
-	color: #0f3c4b;
-	background-color: #e5edf1;
-	padding: 5rem 1.25rem; /* 80 20 */
+	font-family: 'Assistant', sans-serif;
 }
 
-.container
-{
-	width: 100%;
-	max-width: 680px; /* 800 */
-	text-align: center;
-	margin: 0 auto;
-}
-
-	.container h1
-	{
-		font-size: 42px;
-		font-weight: 300;
-		color: #0f3c4b;
-		margin-bottom: 40px;
-	}
-	.container h1 a:hover,
-	.container h1 a:focus
-	{
-		color: #39bfd3;
-	}
 
 	.container nav
 	{
@@ -68,43 +45,64 @@ body
 			color: #39bfd3;
 		}
 
-	.box
-	{
-		font-size: 1.25rem; /* 20 */
-		background-color: #c8dadf;
+	.box {
 		position: relative;
-		padding: 100px 20px;
+		padding: 20px;
+		background-color: #3E3E3E;
+		min-height: 200px;
+		margin-bottom: 70px;
+		color: #fff;
+	}
+	.box__input {
+		position: absolute;
+		right: 0;
+		bottom: -70px;
+	}
+	.box__input label { 
+		height: 40px;
+		width: 253px;
+		background: #6C6C6C;
+		color: #ffffff !important;
+		text-transform: uppercase;
+		font-weight: 300;
+		letter-spacing: 6px;
+		line-height: 40px;
+		border-radius: 0;
+		border: 0px;
+		padding: 0 0 0 6px;
+		display: inline-block;
+		text-align: center;
+	}
+	.box__input label:hover,
+	.box__input label:focus {
+		background: #3E3E3E;
 	}
 	.box.has-advanced-upload
 	{
-		outline: 2px dashed #92b0b3;
-		outline-offset: -10px;
-
-		-webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-		transition: outline-offset .15s ease-in-out, background-color .15s linear;
+		-webkit-transition: background-color .15s linear;
+		transition: background-color .15s linear;
 	}
 	.box.is-dragover
 	{
-		outline-offset: -20px;
-		outline-color: #c8dadf;
-		background-color: #fff;
+		background-color: #6C6C6C;
 	}
 		.box__dragndrop,
 		.box__icon
 		{
 			display: none;
 		}
-		.box.has-advanced-upload .box__dragndrop
-		{
-			display: inline;
-		}
-		.box.has-advanced-upload .box__icon
-		{
-			width: 100%;
-			height: 80px;
-			fill: #92b0b3;
+		.box.has-advanced-upload .box__dragndrop {
 			display: block;
-			margin-bottom: 40px;
+			transform: translate(-50%,-50%);
+			text-align: center;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			text-transform: uppercase;
+			font-size: 13px;
+			color: #ffffff;
+			letter-spacing: 1px;
+			font-weight: 300;
 		}
 
 		.box.is-uploading .box__input,
@@ -126,9 +124,10 @@ body
 		{
 			display: block;
 			position: absolute;
-			top: 50%;
+			bottom: -45px;
 			right: 0;
-			left: 0;
+			left: 0;    
+			max-width: 50%;
 
 			-webkit-transform: translateY( -50% );
 			transform: translateY( -50% );
@@ -176,7 +175,6 @@ body
 		}
 		.js .box__file + label
 		{
-			max-width: 80%;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			cursor: pointer;
@@ -223,13 +221,16 @@ body
 			{
 				background-color: #0f3c4b;
 			}
-h4 {
-	margin: 10px;
-}
-#files div {
+
+a.remove {
+    width: 20px;
+    height: 20px;
     display: block;
-    line-height: 32px;
-    height: 32px;
+    float: left;
+}
+a.file-link {
+    line-height: 25px;
+    margin-left: 10px;
 }
 .mt-10 {
 	margin-top:10px;
